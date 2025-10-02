@@ -8,14 +8,20 @@
 def kilometer_conversion(kilometers):    
     miles = 0.0
     ######################
-    miles = kilometers * 0.6214
+def askUserForKilometers():
+    userKilometers = float( input( "Please enter the distance" + " in kilometers: " ))
+    return userKilometers
+def convertKilometersToMiles( userKilometers ):
+    miles = userKilometers * 0.6214
     return miles
+def main():
+    userKilometersTyped = askUserForKilometers()
+    convertedMiles = convertKilometersToMiles( userKilometersTyped )
 
-if __name__ == '__main__':
-    kilometers = float(input("Enter distance in kilometers: "))
-    miles = kilometer_conversion(kilometers)
-    print(f"{kilometers} kilometers is equal to {miles: .2f} miles.")
-
+    print( "\n", userKilometersTyped, "Kilometers converted to miles is", \
+          format( convertedMiles, ".2f" ), "miles", sep="" )
+    
+main()
     ######################    
 
 
