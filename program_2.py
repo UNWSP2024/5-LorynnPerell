@@ -6,28 +6,35 @@
 # + 129
 
 # ------
-def generate_quiz():
-    num1 = 59
-    num2 = 66
-    return num1, num2
-def math_quiz():
-    num1, num2 = generate_quiz()
-    print(f" {num1}")
-    print(f"+ {num2}")
-    print("------")
-try:
-    user_answer = int(input("Enter your answer: "))
-except ValueError:
-    print("Invalid input. Please enter a numeric value. ")
-    
-correct_answer = 125
-if user_answer == correct_answer:
-    print("Congradulations! Your answer is correct!")
-else:
-    print(f"Sorry! The correct answer is 125.")
-if __name__ == "__main__":
-    math_quiz()
+import random
 
+randomNumber1 = random.randint( 2,607 )
+randomNumber2 = random.randint( 2,607 )
+
+def askQuestion():
+    global randomNumber1
+    global randomNumber2
+
+    userAnswer = int( input( "What is " + str( randomNumber1 ) + " + " + \
+               str( randomNumber2 ) + "?: "))
+    return userAnswer
+    
+def checkAnswer( userAnswer ):
+    global randomNumber1
+    global randomNumber2
+
+    correctAnswer = randomNumber1 + randomNumber2
+    print()
+    if userAnswer == correctAnswer:
+        print("Congradulations! you got it correct!")
+    else:
+        print("Your answer is wrong. The correct answer is", correctAnswer )
+
+def main():
+    userAnswer = askQuestion()
+    checkAnswer( userAnswer )
+
+main()
 
 # The program should allow the student to enter the answer.  
 # If the answer is correct, a message of congratulations should be displayed.  
