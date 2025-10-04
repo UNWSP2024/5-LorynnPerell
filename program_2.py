@@ -8,34 +8,27 @@
 # ------
 import random
 
-randomNumber1 = random.randint( 2,607 )
-randomNumber2 = random.randint( 2,607 )
 
-def askQuestion():
-    global randomNumber1
-    global randomNumber2
-
-    userAnswer = int( input( "What is " + str( randomNumber1 ) + " + " + \
-               str( randomNumber2 ) + "?: "))
-    return userAnswer
-    
-def checkAnswer( userAnswer ):
-    global randomNumber1
-    global randomNumber2
-
-    correctAnswer = randomNumber1 + randomNumber2
-    print()
-    if userAnswer == correctAnswer:
-        print("Congradulations! you got it correct!")
+def math_quiz():
+    num1 = random.randint(100, 999)
+    num2 = random.randint(100, 999)
+    print(f"\n  {num1}")
+    print(f"+ {num2}")
+    print("------")
+    try:
+        user_answer = int(input("Your answer: "))
+    except ValueError:
+        print("Please enter a valid number.")
+        return
+    correct_answer = num1 + num2
+    if user_answer == correct_answer:
+        print("Congratulations! That's correct.")
     else:
-        print("Your answer is wrong. The correct answer is", correctAnswer )
-
+        print(f"Wrong! The correct answer is {correct_answer}.")
 def main():
-    userAnswer = askQuestion()
-    checkAnswer( userAnswer )
+    math_quiz()
 
 main()
-
 # The program should allow the student to enter the answer.  
 # If the answer is correct, a message of congratulations should be displayed.  
 # If the answer is incorrect a message showing the correct answer should be displayed.  
